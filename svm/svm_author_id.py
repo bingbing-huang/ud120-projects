@@ -25,11 +25,11 @@ start = time()
 # features_train = features_train[:len(features_train) // 100]
 # labels_train = labels_train[:len(labels_train) // 100]
 clf.fit(features_train, labels_train)
-print("Time taken for training the model: ", (time() - start, "3"), "s\n")
+print("Time taken for training the model: ", round(time() - start, 3), "s\n")
 
 start = time()
 pred = clf.predict(features_test)
-print("Time taken for predicting: ", (time() - start, "3"), "s\n")
+print("Time taken for predicting: ", round(time() - start, 3), "s\n")
 
 # print("accuracy: ", accuracy_score(pred, labels_test))
 print(np.count_nonzero(pred))
