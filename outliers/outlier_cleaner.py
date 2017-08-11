@@ -10,11 +10,12 @@ def outlierCleaner(predictions, ages, net_worths):
         Return a list of tuples named cleaned_data where 
         each tuple is of the form (age, net_worth, error).
     """
-    
     cleaned_data = []
-
     ### your code goes here
+    for i in range(len(predictions)):
+        cleaned_data.append((ages[i], net_worths[i], abs(predictions[i] - net_worths[i])))
 
-    
-    return cleaned_data
+    # cmp has removed from Python 3.6
+
+    return sorted(cleaned_data, key=lambda tup: tup[2])[:int(0.9 * len(predictions))]
 
